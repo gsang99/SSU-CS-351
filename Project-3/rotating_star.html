@@ -58,7 +58,7 @@
                     gl.uniform1f(uN, N);
                     gl.uniform1f(uTime, t);
 
-                    gl.drawArrays(gl.LINE_LOOP, 0, N);
+                    gl.drawArrays(gl.TRIANGLE_FAN, 0, N);
 
                     requestAnimationFrame(render);
                 };
