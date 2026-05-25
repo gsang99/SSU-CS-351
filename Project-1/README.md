@@ -1,3 +1,4 @@
+
 # SSU-CS-351
 My computer architecture class I took at Sonoma State University  in spring of 2026
 
@@ -22,7 +23,8 @@ My list
 5) What's noticeable about heap breaks? Does stack size affect the heap?
     - Heap breaks continue to happen as all of these functions ask for more and more stack space as it tries to accomodate their growth. Stack size and the heap go hand and hand, so they definitely affect each other and their growth.
 6) Draw a two-node diagram for malloc.cpp or alloca.cpp showing pointers, node size, and structure
-    - 
+    - [Untitled document.pdf](https://github.com/user-attachments/files/28203872/Untitled.document.pdf)
+
 7) Were any allocation/init/hashing tasks the same across programs? Which differed?
     - there were a few, I think alloc and malloc had a few times and the same happened for list and new. However, when it came to the ones that differed most, those two groups almost never overlaped or came close to each other. There were a few times but, very few. 
 8) As node data size grows, does allocation overhead matter more or less?
