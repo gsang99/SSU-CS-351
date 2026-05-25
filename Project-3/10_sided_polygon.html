@@ -6,7 +6,7 @@
         <script id="vertex-shader" type="x-shader/x-vertex">
             uniform float N;
             void main() {
-                <!-- Your vertex shader code will go here -->
+                //Your vertex shader code will go here 
                 float angle = radians(360.0 * float(gl_VertexID) / N);
                 gl_Position = vec4(cos(angle), sin(angle), 0.0, 1.0);
             }
