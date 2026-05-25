@@ -6,12 +6,17 @@
         <script id="vertex-shader" type="x-shader/x-vertex">
             void main() {
                 // Your vertex shader code will go here
+                float angle = radians(360.0 * float(gl_VertexID) / 3.0);
+                gl_Position = vec4(cos(angle), sin(angle), 0.0, 1.0);
             }
         </script>
         
         <script id="fragment-shader" type="x-shader/x-fragment">
+            out vec4 fColor;
             void main() {
-                // Your fragment shader code will go here
+                <!-- Your fragment shader code will go here -->
+                fColor = vec4(1.0, 1.0, 1.0, 1.0);
+
             }
         </script>
 

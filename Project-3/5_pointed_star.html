@@ -4,14 +4,29 @@
         <script src="initShaders.js"></script>
 
         <script id="vertex-shader" type="x-shader/x-vertex">
-            void main() {
-                // Your vertex shader code will go here
+            uniform float N;
+            void main() 
+            {
+                <!-- Your vertex shader code will go here -->
+                if (gl_VertexID == 0) 
+                {
+                    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);
+                    return;
+                }
+
+                float radius = (gl_VertexID % 2 == 0) ? 1.0 : 0.4;
+                float angle = radians(360.0 * float(gl_VertexID) / (N - 1.0));
+                vec2 v = radius * vec2(cos(angle), sin(angle));
+                gl_Position = vec4(v, 0.0, 1.0);
             }
         </script>
         
         <script id="fragment-shader" type="x-shader/x-fragment">
+            out vec4 fColor;
             void main() {
                 // Your fragment shader code will go here
+                fColor = vec4(1.0, 1.0, 1.0, 1.0);
+
             }
         </script>
 
@@ -25,7 +40,7 @@
                 var program = initShaders(gl, "vertex-shader", "fragment-shader");
                 
                 // These are lines that we'll need a bit later.
-                // var uN = gl.getUniformLocation(program, "N");
+                 var uN = gl.getUniformLocation(program, "N");
                 // var uTime = gl.getUniformLocation(program, "t");
 
                 var t = 0.0;
@@ -40,10 +55,10 @@
 
                     // Other code we'll need later, in combination with the
                     //   code above marked for later use.
-                    // gl.uniform1f(uN, N);
+                     gl.uniform1f(uN, N);
                     // gl.uniform1f(uTime, t);
 
-                    gl.drawArrays(gl.LINE_LOOP, 0, 3);
+                    gl.drawArrays(gl.LINE_LOOP, 0, N);
 
                     requestAnimationFrame(render);
                 };
